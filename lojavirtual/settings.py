@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'carrinho.apps.CarrinhoConfig',
+    'pedidos.apps.PedidosConfig',
 ]
 
 MIDDLEWARE = [

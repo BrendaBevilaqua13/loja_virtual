@@ -19,7 +19,7 @@ class Pedido(models.Model):
     pago = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('-data_criacao')
+        ordering = ('-data_criacao',)
 
     def __str__(self):
         return 'Pedido # ' + str(self.id)
