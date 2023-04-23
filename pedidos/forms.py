@@ -6,3 +6,4 @@ class FormCriarPedido(forms.ModelForm):
         model = Pedido
         fields = ['nome', 'logradouro', 'numero', 'complemento',
                   'bairro', 'cidade', 'uf', 'cep']
+        

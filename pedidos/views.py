@@ -11,10 +11,10 @@ def criar_pedido(request):
         if form.is_valid():
             pedido = form.save()
             for item in carrinho:
-                ItemPedido.objects.create(pedido=pedido, produto= item['produto'],preco = item['preco'],
-                                          qunatidade = item['quantidade'])
-        carrinho.limpar_carrinho()
-        return render(request, 'pedidos/pedido/concluir.html',{'pedido':pedido})
+                ItemPedido.objects.create(pedido=pedido, produto=item['produto'], preco=item['preco'],
+                                          quantidade=item['quantidade']) 
+            carrinho.limpar_carrinho(request)
+            return render(request, 'pedidos/pedido/concluir.html', {'pedido': pedido})
     else:
         form = FormCriarPedido()
-    return render(request, 'pedidos/pedido/crair.html', {'carrinho': carrinho, 'form': form})    
+    return render(request, 'pedidos/pedido/criar.html', {'carrinho': carrinho, 'form': form})

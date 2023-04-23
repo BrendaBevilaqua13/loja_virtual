@@ -46,9 +46,9 @@ class Carrinho:
 
         for item in carrinho.values():
             item['preco'] = Decimal(item['preco'])
-            item['subtotal'] = Decimal(item['preco']) * Decimal(item['quantidade'])
+            item['subtotal'] = Decimal(
+                item['preco']) * Decimal(item['quantidade'])
             yield item
-
 
     def __len__(self):
         resultado = 0
@@ -63,7 +63,6 @@ class Carrinho:
             resultado = resultado + subtotal
         return resultado
 
-    def limpar_carrinho(self):
-        for key in request.session.keys():
-            del request.session[key]
+    def limpar_carrinho(self, request):
+        request.session.clear()
         request.session.modified = True
